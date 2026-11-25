@@ -754,7 +754,16 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 0.7rem;
-  min-width: min(100%, 320px);
+  width: min(100%, 340px);
+  min-width: 0;
+}
+
+.cta-actions .btn {
+  width: 100%;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: left;
+  line-height: 1.35;
 }
 
 .footer {
@@ -839,6 +848,20 @@ ul {
 }
 
 @media (max-width: 720px) {
+  .brand {
+    font-size: 1rem;
+  }
+
+  .nav-actions .btn-sm span {
+    display: none;
+  }
+
+  .nav-actions .btn-sm {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+  }
+
   .menu-toggle {
     display: inline-flex;
   }

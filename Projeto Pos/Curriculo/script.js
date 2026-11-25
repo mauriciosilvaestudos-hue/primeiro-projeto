@@ -57,7 +57,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const updateScrollUI = () => {
     const scrollTop = window.scrollY;
-    navbar?.classList.toggle("scrolled", scrollTop > 24);
+    const hero = document.getElementById("inicio");
+    const navHeight = navbar?.offsetHeight || 76;
+    const solidNav = hero ? scrollTop > hero.offsetHeight - navHeight - 48 : scrollTop > 24;
+    navbar?.classList.toggle("scrolled", solidNav);
 
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
