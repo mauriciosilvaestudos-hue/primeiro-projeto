@@ -3,11 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Meu currículo | Mauricio Silva</title>
+  <meta
+    name="description"
+    content="Currículo de Mauricio Silva, engenheiro de produção. Trajetória em Material Handling, planejamento e logística. Volta Redonda, RJ."
+  />
+  <title>Mauricio Silva | Engenharia de Produção</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,560;9..144,700&family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
     rel="stylesheet"
   />
   <link
@@ -19,10 +23,8 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Barra de progresso de leitura -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <!-- Navegação fixa -->
   <header class="navbar" id="navbar">
     <div class="container nav-content">
       <a href="#inicio" class="brand">
@@ -35,6 +37,7 @@
         <a href="#experiencia" class="nav-link">Experiência</a>
         <a href="#formacao" class="nav-link">Formação</a>
         <a href="#idiomas" class="nav-link">Idiomas</a>
+        <a href="#contato" class="nav-link">Contato</a>
       </nav>
 
       <div class="nav-actions">
@@ -70,21 +73,50 @@
   </header>
 
   <main>
-    <!-- 1ª SEÇÃO: Imagem (foto) com frase de efeito -->
-    <section id="inicio" class="hero section">
-      <div class="hero-bg-glow" aria-hidden="true"></div>
-      <div class="container hero-grid">
-        <div class="hero-photo-wrap reveal">
-          <div class="profile-card">
-            <div class="photo-ring">
-              <img
-                src="foto"
-                alt="Foto de perfil de Mauricio"
-                class="hero-photo"
-                id="profilePhoto"
-              />
-            </div>
+    <section id="inicio" class="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <span class="orb orb-a"></span>
+        <span class="orb orb-b"></span>
+        <span class="grid-fade"></span>
+      </div>
 
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <p class="hero-eyebrow">
+            <i class="fa-solid fa-industry"></i>
+            Engenharia de Produção
+          </p>
+          <h1>Mauricio Silva</h1>
+          <p class="hero-lead">
+            Liderança em operações e logística, com formação em engenharia, negócios e inteligência artificial.
+          </p>
+          <p class="hero-support">
+            Trajetória em Material Handling, planejamento e coordenação — de Volta Redonda para o próximo desafio.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#experiencia" class="btn btn-primary">
+              <i class="fa-solid fa-arrow-down"></i>
+              Ver trajetória
+            </a>
+            <a href="#contato" class="btn btn-ghost">
+              <i class="fa-solid fa-paper-plane"></i>
+              Falar comigo
+            </a>
+          </div>
+
+          <ul class="hero-facts">
+            <li><i class="fa-solid fa-location-dot"></i> Volta Redonda, RJ</li>
+            <li><i class="fa-solid fa-briefcase"></i> Operações e logística</li>
+            <li><span class="pulse-dot"></span> Disponível para novos desafios</li>
+          </ul>
+        </div>
+
+        <aside class="hero-aside reveal">
+          <div class="profile-card">
+            <div class="photo-frame">
+              <img src="foto" alt="Foto de Mauricio Silva" class="hero-photo" id="profilePhoto" />
+            </div>
             <div class="profile-contacts">
               <a href="mailto:mauriciosilva213@gmail.com" class="contact-pill">
                 <i class="fa-solid fa-envelope"></i>
@@ -100,195 +132,144 @@
               </a>
             </div>
           </div>
-
-          <div class="status-badge">
-            <span class="pulse-dot"></span>
-            Disponível para novos desafios
-          </div>
-        </div>
-
-        <div class="hero-content reveal">
-          <p class="hero-eyebrow">
-            <i class="fa-solid fa-code"></i>
-            Engenharia de Produção
-          </p>
-          <h1 class="hero-title">Mauricio Silva</h1>
-          <blockquote class="hero-tagline">
-            <i class="fa-solid fa-quote-left quote-icon"></i>
-            Transformo ideias complexas em produtos digitais elegantes, escaláveis e centrados nas pessoas.
-          </blockquote>
-
-          <div class="hero-meta">
-            <span><i class="fa-solid fa-location-dot"></i> Volta Redonda, RJ</span>
-            <span><i class="fa-solid fa-envelope"></i> mauriciosilva213@gmail.com</span>
-            <span><i class="fa-solid fa-phone"></i> (24) 99817-9981</span>
-          </div>
-
-          <div class="hero-actions">
-            <a href="#experiencia" class="btn btn-outline">
-              <i class="fa-solid fa-briefcase"></i>
-              Experiência
-            </a>
-            <div class="social-links">
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub" title="GitHub">
-                <i class="fa-brands fa-github"></i>
-              </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn">
-                <i class="fa-brands fa-linkedin-in"></i>
-              </a>
-              <a href="mailto:mauriciosilva213@gmail.com" aria-label="E-mail" title="Enviar e-mail">
-                <i class="fa-solid fa-envelope"></i>
-              </a>
-            </div>
-          </div>
-        </div>
+        </aside>
       </div>
     </section>
 
-    <!-- 2ª SEÇÃO: Experiência Profissional -->
+    <section class="metrics" aria-label="Resumo da trajetória">
+      <div class="container metrics-grid">
+        <article class="metric reveal">
+          <strong data-count="25">0</strong>
+          <span>anos somados nas funções</span>
+        </article>
+        <article class="metric reveal">
+          <strong data-count="4">0</strong>
+          <span>cargos de operação e gestão</span>
+        </article>
+        <article class="metric reveal">
+          <strong data-count="2">0</strong>
+          <span>MBAs em estratégia e IA</span>
+        </article>
+        <article class="metric reveal">
+          <strong data-count="2">0</strong>
+          <span>idiomas em nível avançado</span>
+        </article>
+      </div>
+    </section>
+
     <section id="experiencia" class="section">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag"><i class="fa-solid fa-briefcase"></i> Carreira</span>
-          <h2 class="section-title">Experiência Profissional</h2>
+          <h2 class="section-title">Experiência que sustenta a operação</h2>
+          <p class="section-subtitle">
+            Quatro etapas em movimentação de materiais, planejamento e logística.
+          </p>
         </div>
 
-        <div class="timeline">
-          <article class="timeline-item reveal">
-            <div class="timeline-marker">
-              <i class="fa-solid fa-user-tie"></i>
+        <article class="role-featured card reveal">
+          <div class="role-years">
+            <span>07</span>
+            <small>anos</small>
+          </div>
+          <div class="role-body">
+            <p class="role-kicker">Função mais recente</p>
+            <h3>Supervisor Master Trainer de Material Handling</h3>
+            <p>
+              Supervisão da movimentação de materiais com foco em formar pessoas e padronizar a rotina da operação.
+            </p>
+          </div>
+          <div class="role-icon" aria-hidden="true">
+            <i class="fa-solid fa-user-tie"></i>
+          </div>
+        </article>
+
+        <div class="roles-grid">
+          <article class="card role-card reveal">
+            <div class="role-top">
+              <span class="period-badge"><i class="fa-regular fa-calendar"></i> 6 anos</span>
+              <i class="fa-solid fa-dolly role-mini" aria-hidden="true"></i>
             </div>
-            <div class="card timeline-card">
-              <div class="card-top">
-                <div>
-                  <h3>Supervisor Master Trainer de Material Handling</h3>
-                </div>
-                <span class="period-badge">
-                  <i class="fa-regular fa-calendar"></i> 7 anos
-                </span>
-              </div>
-            </div>
+            <h3>Supervisor de Material Handling</h3>
+            <p>Condução diária da equipe e do fluxo de materiais na operação.</p>
           </article>
 
-          <article class="timeline-item reveal">
-            <div class="timeline-marker">
-              <i class="fa-solid fa-dolly"></i>
+          <article class="card role-card reveal">
+            <div class="role-top">
+              <span class="period-badge"><i class="fa-regular fa-calendar"></i> 6 anos</span>
+              <i class="fa-solid fa-chart-gantt role-mini" aria-hidden="true"></i>
             </div>
-            <div class="card timeline-card">
-              <div class="card-top">
-                <div>
-                  <h3>Supervisor de Material Handling</h3>
-                </div>
-                <span class="period-badge">
-                  <i class="fa-regular fa-calendar"></i> 6 anos
-                </span>
-              </div>
-            </div>
+            <h3>Analista de Planejamento Pleno</h3>
+            <p>Planejamento da operação para antecipar demanda, prazo e recurso.</p>
           </article>
 
-          <article class="timeline-item reveal">
-            <div class="timeline-marker">
-              <i class="fa-solid fa-chart-gantt"></i>
+          <article class="card role-card reveal">
+            <div class="role-top">
+              <span class="period-badge"><i class="fa-regular fa-calendar"></i> 6 anos</span>
+              <i class="fa-solid fa-truck-fast role-mini" aria-hidden="true"></i>
             </div>
-            <div class="card timeline-card">
-              <div class="card-top">
-                <div>
-                  <h3>Analista de Planejamento Pleno</h3>
-                </div>
-                <span class="period-badge">
-                  <i class="fa-regular fa-calendar"></i> 6 anos
-                </span>
-              </div>
-            </div>
-          </article>
-
-          <article class="timeline-item reveal">
-            <div class="timeline-marker">
-              <i class="fa-solid fa-truck-fast"></i>
-            </div>
-            <div class="card timeline-card">
-              <div class="card-top">
-                <div>
-                  <h3>Coordenador de Logística</h3>
-                </div>
-                <span class="period-badge">
-                  <i class="fa-regular fa-calendar"></i> 6 anos
-                </span>
-              </div>
-            </div>
+            <h3>Coordenador de Logística</h3>
+            <p>Coordenação do fluxo logístico para a operação chegar no prazo.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 3ª SEÇÃO: Formação -->
     <section id="formacao" class="section section-alt">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag"><i class="fa-solid fa-graduation-cap"></i> Educação</span>
-          <h2 class="section-title">Formação Acadêmica</h2>
+          <h2 class="section-title">Formação que cruza chão de fábrica e estratégia</h2>
+          <p class="section-subtitle">
+            Engenharia, logística, letras e dois MBAs — incluindo soluções de inteligência artificial.
+          </p>
         </div>
 
-        <div class="education-grid">
-          <article class="card edu-card reveal">
-            <div class="edu-icon">
-              <i class="fa-solid fa-award"></i>
-            </div>
-            <h3>MBA em Estratégia e Desenvolvimento de Soluções de IA</h3>
-            <p class="institution">
-              <i class="fa-solid fa-university"></i> Universidade Anhanguera
-            </p>
+        <div class="edu-bento">
+          <article class="card edu-card edu-featured reveal">
+            <div class="edu-icon"><i class="fa-solid fa-brain"></i></div>
+            <p class="edu-kind">MBA</p>
+            <h3>Estratégia e Desenvolvimento de Soluções de IA</h3>
+            <p class="institution"><i class="fa-solid fa-university"></i> Universidade Anhanguera</p>
+          </article>
+
+          <article class="card edu-card edu-featured reveal">
+            <div class="edu-icon"><i class="fa-solid fa-chess"></i></div>
+            <p class="edu-kind">MBA</p>
+            <h3>Administração Estratégica de Negócios</h3>
+            <p class="institution"><i class="fa-solid fa-university"></i> Universidade Estácio de Sá</p>
           </article>
 
           <article class="card edu-card reveal">
-            <div class="edu-icon">
-              <i class="fa-solid fa-award"></i>
-            </div>
-            <h3>MBA em Administração Estratégica de Negócios</h3>
-            <p class="institution">
-              <i class="fa-solid fa-university"></i> Universidade Estácio de Sá
-            </p>
-          </article>
-
-          <article class="card edu-card reveal">
-            <div class="edu-icon">
-              <i class="fa-solid fa-industry"></i>
-            </div>
+            <div class="edu-icon"><i class="fa-solid fa-industry"></i></div>
+            <p class="edu-kind">Graduação</p>
             <h3>Engenharia de Produção</h3>
-            <p class="institution">
-              <i class="fa-solid fa-university"></i> Universidade Estácio de Sá
-            </p>
+            <p class="institution"><i class="fa-solid fa-university"></i> Universidade Estácio de Sá</p>
           </article>
 
           <article class="card edu-card reveal">
-            <div class="edu-icon">
-              <i class="fa-solid fa-language"></i>
-            </div>
+            <div class="edu-icon"><i class="fa-solid fa-language"></i></div>
+            <p class="edu-kind">Graduação</p>
             <h3>Letras — Português e Inglês</h3>
-            <p class="institution">
-              <i class="fa-solid fa-university"></i> Centro Universitário Geraldo Di Biase
-            </p>
+            <p class="institution"><i class="fa-solid fa-university"></i> Centro Universitário Geraldo Di Biase</p>
           </article>
 
           <article class="card edu-card reveal">
-            <div class="edu-icon">
-              <i class="fa-solid fa-truck"></i>
-            </div>
+            <div class="edu-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
+            <p class="edu-kind">Graduação</p>
             <h3>Logística Empresarial</h3>
-            <p class="institution">
-              <i class="fa-solid fa-university"></i> Universidade Estácio de Sá
-            </p>
+            <p class="institution"><i class="fa-solid fa-university"></i> Universidade Estácio de Sá</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- 4ª SEÇÃO: Idiomas -->
     <section id="idiomas" class="section">
       <div class="container">
         <div class="section-header reveal">
           <span class="section-tag"><i class="fa-solid fa-language"></i> Comunicação</span>
-          <h2 class="section-title">Idiomas</h2>
+          <h2 class="section-title">Dois idiomas em nível avançado</h2>
+          <p class="section-subtitle">Inglês e espanhol para operar, negociar e formar pessoas além do português.</p>
         </div>
 
         <div class="languages-grid">
@@ -298,25 +279,54 @@
                 <span class="lang-icon"><i class="fa-solid fa-globe"></i></span>
                 <div>
                   <h3>Inglês</h3>
-                  <p>Avançado</p>
+                  <p>Leitura, conversa e rotina profissional</p>
                 </div>
               </div>
               <span class="lang-level">Avançado</span>
+            </div>
+            <div class="progress-track" aria-hidden="true">
+              <div class="progress-fill" data-level="88"></div>
             </div>
           </article>
 
           <article class="card lang-card reveal">
             <div class="lang-header">
               <div class="lang-title-group">
-                <span class="lang-icon"><i class="fa-solid fa-earth-europe"></i></span>
+                <span class="lang-icon"><i class="fa-solid fa-earth-americas"></i></span>
                 <div>
                   <h3>Espanhol</h3>
-                  <p>Avançado</p>
+                  <p>Leitura, conversa e rotina profissional</p>
                 </div>
               </div>
               <span class="lang-level">Avançado</span>
             </div>
+            <div class="progress-track" aria-hidden="true">
+              <div class="progress-fill" data-level="88"></div>
+            </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="cta">
+      <div class="container cta-panel reveal">
+        <div>
+          <p class="hero-eyebrow light">
+            <span class="pulse-dot"></span>
+            Disponível para novos desafios
+          </p>
+          <h2>Vamos conversar sobre a próxima operação.</h2>
+          <p>Engenharia de Produção, logística e formação de equipes. Volta Redonda, RJ.</p>
+        </div>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="mailto:mauriciosilva213@gmail.com">
+            <i class="fa-solid fa-envelope"></i>
+            mauriciosilva213@gmail.com
+          </a>
+          <a class="btn btn-ghost" href="tel:+5524998179981">
+            <i class="fa-solid fa-phone"></i>
+            (24) 99817-9981
+          </a>
         </div>
       </div>
     </section>
@@ -325,7 +335,8 @@
   <footer class="footer">
     <div class="container footer-content">
       <p>
-        <i class="fa-solid fa-file-lines"></i> Meu currículo — <span id="currentYear"></span> Mauricio Silva.
+        <i class="fa-solid fa-file-lines"></i>
+        Meu currículo — <span id="currentYear"></span> Mauricio Silva
       </p>
       <a href="#inicio" class="back-to-top" id="backToTop" aria-label="Voltar ao topo">
         <i class="fa-solid fa-arrow-up"></i>

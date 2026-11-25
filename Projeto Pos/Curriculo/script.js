@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const html = document.documentElement;
+  const navbar = document.getElementById("navbar");
   const themeToggle = document.getElementById("themeToggle");
   const printBtn = document.getElementById("printBtn");
   const menuToggle = document.getElementById("menuToggle");
@@ -7,12 +8,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const scrollProgress = document.getElementById("scrollProgress");
   const currentYear = document.getElementById("currentYear");
 
-  // Ano atual no rodapé
   if (currentYear) {
     currentYear.textContent = new Date().getFullYear();
   }
 
-  // Tema claro / escuro com persistência
   const savedTheme = localStorage.getItem("cv-theme");
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   const initialTheme = savedTheme || (prefersDark ? "dark" : "light");
@@ -33,69 +32,56 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("cv-theme", nextTheme);
   });
 
-  // Botão imprimir / salvar PDF
-  printBtn?.addEventListener("click", () => {
-    window.print();
-  });
+  printBtn?.addEventListener("click", () => window.print());
 
-  // Menu mobile
+  const closeMenu = () => {
+    navLinks?.classList.remove("open");
+    menuToggle?.setAttribute("aria-expanded", "false");
+    const icon = menuToggle?.querySelector("i");
+    if (icon) icon.className = "fa-solid fa-bars";
+  };
+
   menuToggle?.addEventListener("click", () => {
     const isOpen = navLinks.classList.toggle("open");
     menuToggle.setAttribute("aria-expanded", String(isOpen));
     const icon = menuToggle.querySelector("i");
-    if (icon) {
-      icon.className = isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
-    }
+    if (icon) icon.className = isOpen ? "fa-solid fa-xmark" : "fa-solid fa-bars";
   });
 
-  // Fecha menu mobile ao clicar em um link
   document.querySelectorAll(".nav-link").forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinks.classList.remove("open");
-      menuToggle?.setAttribute("aria-expanded", "false");
-      const icon = menuToggle?.querySelector("i");
-      if (icon) icon.className = "fa-solid fa-bars";
-    });
+    link.addEventListener("click", closeMenu);
   });
 
-  // Barra de progresso de leitura + destaque da seção ativa na navbar
   const sections = document.querySelectorAll("main section[id]");
   const navItems = document.querySelectorAll(".nav-link");
 
   const updateScrollUI = () => {
     const scrollTop = window.scrollY;
+    navbar?.classList.toggle("scrolled", scrollTop > 24);
+
     const docHeight = document.documentElement.scrollHeight - window.innerHeight;
     const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
-
-    if (scrollProgress) {
-      scrollProgress.style.width = `${progress}%`;
-    }
+    if (scrollProgress) scrollProgress.style.width = `${progress}%`;
 
     let activeId = "inicio";
     sections.forEach((section) => {
-      const top = section.offsetTop - 130;
-      if (scrollTop >= top) {
-        activeId = section.id;
-      }
+      if (scrollTop >= section.offsetTop - 140) activeId = section.id;
     });
 
     navItems.forEach((item) => {
-      const href = item.getAttribute("href");
-      item.classList.toggle("active", href === `#${activeId}`);
+      item.classList.toggle("active", item.getAttribute("href") === `#${activeId}`);
     });
   };
 
   window.addEventListener("scroll", updateScrollUI, { passive: true });
   updateScrollUI();
 
-  // Animação de entrada (Scroll Reveal)
   const revealObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          revealObserver.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
       });
     },
     { threshold: 0.14 }
@@ -103,39 +89,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-  // Animação das barras de progresso de idiomas ao entrar na tela
   const progressObserver = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          const bar = entry.target;
-          const level = bar.getAttribute("data-level") || "0";
-          bar.style.width = `${level}%`;
-          progressObserver.unobserve(bar);
-        }
+        if (!entry.isIntersecting) return;
+        const bar = entry.target;
+        bar.style.width = `${bar.getAttribute("data-level") || "0"}%`;
+        progressObserver.unobserve(bar);
       });
     },
-    { threshold: 0.35 }
+    { threshold: 0.4 }
   );
 
   document.querySelectorAll(".progress-fill").forEach((bar) => progressObserver.observe(bar));
 
-  // Filtro interativo da seção de projetos
-  const filterBtns = document.querySelectorAll(".filter-btn");
-  const projectCards = document.querySelectorAll(".project-card");
+  const countObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = Number(el.getAttribute("data-count")) || 0;
+        const start = performance.now();
+        const duration = 900;
 
-  filterBtns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      const filter = btn.getAttribute("data-filter");
+        const tick = (now) => {
+          const progress = Math.min((now - start) / duration, 1);
+          el.textContent = String(Math.round(target * (1 - Math.pow(1 - progress, 3))));
+          if (progress < 1) requestAnimationFrame(tick);
+        };
 
-      filterBtns.forEach((b) => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      projectCards.forEach((card) => {
-        const category = card.getAttribute("data-category");
-        const shouldShow = filter === "all" || category === filter;
-        card.classList.toggle("hidden", !shouldShow);
+        requestAnimationFrame(tick);
+        countObserver.unobserve(el);
       });
-    });
-  });
+    },
+    { threshold: 0.6 }
+  );
+
+  document.querySelectorAll("[data-count]").forEach((el) => countObserver.observe(el));
 });
